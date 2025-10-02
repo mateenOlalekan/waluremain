@@ -6,14 +6,14 @@ import BookingLayout from "./layouts/BookingLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 
-import HomePage from "./pages/HomePage";
-import ContactPage from "./pages/ContactPage";
-import BookingPage from "./pages/BookingPage";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
-import VerificationPage from "./pages/VerificationPage";
-import AdminPage from "./pages/AdminPage";
-import UserPage from "./pages/UserDashPage";
+import HomePage from "./pages/homepage";
+import ContactPage from "./pages/contactPage";
+import BookingPage from "./pages/bookingPage";
+import LoginPage from "./pages/loginPage";
+import SignupPage from "./pages/signupPage";
+import VerificationPage from "./pages/verificationPage";
+import AdminPage from "./pages/adminPage";
+import UserPage from "./pages/userDashpage";
 
 export default function App() {
   return (
