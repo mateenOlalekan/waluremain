@@ -11,9 +11,9 @@ import ContactPage from "./pages/ContactPage";
 import BookingPage from "./pages/BookingPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
-import Verifypage from "./pages/VerificationPage";
+import VerificationPage from "./pages/VerificationPage";
 import AdminPage from "./pages/AdminPage";
-import UserPage from "./pages/UserDashpage"
+import UserPage from "./pages/UserDashPage";
 
 export default function App() {
   return (
@@ -33,7 +33,7 @@ export default function App() {
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/verify" element={<Verifypage />} />
+        <Route path="/verify" element={<VerificationPage />} />
       </Route>
 
       {/* Dashboard Layout */}
