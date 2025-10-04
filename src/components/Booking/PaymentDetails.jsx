@@ -1,92 +1,105 @@
 // components/Booking/PaymentDetails.jsx
 import React from "react";
 import { useFormContext } from "react-hook-form";
+import { Copy } from "lucide-react";
 
 export default function PaymentDetails() {
   const { register, formState: { errors } } = useFormContext();
 
   return (
-    <div className="space-y-3">
-      <div>
-        <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-          Payment Details
-        </h2>
-        <p className="text-gray-500">
-          Enter your card details to securely process your payment.
-        </p>
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+      {/* Left Side (Empty / Placeholder) */}
 
-      <div className="space-y-5">
-        {/* Payment Method */}
+
+      {/* Right Side (Form Content) */}
+      <div className="w-full space-y-4 bg-white shadow-md rounded-xl p-6 border border-gray-100">
+        {/* Header */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Payment Method *
-          </label>
-          <select
-            {...register("paymentMethod")}
-            className="w-full border-2 border-green-500 rounded-lg p-3 focus:ring-2 focus:ring-green-500"
-          >
-            <option value="">Select payment method</option>
-            <option value="credit">Credit Card</option>
-            <option value="debit">Debit Card</option>
-            <option value="visa">Visa</option>
-            <option value="mastercard">Mastercard</option>
-          </select>
-          {errors.paymentMethod && (
-            <p className="text-red-500 text-sm mt-1">{errors.paymentMethod.message}</p>
-          )}
+          <h2 className="text-xl font-semibold text-gray-800 mb-1">
+            Bank Transfer
+          </h2>
+          <p className="text-sm text-gray-500">
+            Enter your details below to complete your payment.
+          </p>
         </div>
 
-        {/* Card Number */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Card Number *
-          </label>
-          <input
-            type="text"
-            {...register("cardNumber")}
-            placeholder="1234 5678 9012 3456"
-            className="w-full border-2 border-green-500 rounded-lg p-3 focus:ring-2 focus:ring-green-500"
-          />
-          {errors.cardNumber && (
-            <p className="text-red-500 text-sm mt-1">{errors.cardNumber.message}</p>
-          )}
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          {/* Expiry Date */}
+        {/* Form Fields */}
+        <div className="space-y-4">
+          {/* Bank Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Expiry Date (MM/YY) *
+              Bank Name
             </label>
             <input
               type="text"
-              {...register("expiryDate")}
-              placeholder="08/27"
-              className="w-full border-2 border-green-500 rounded-lg p-3 focus:ring-2 focus:ring-green-500"
+              {...register("bankName")}
+              placeholder="June Bank"
+              className="w-full border rounded-lg px-3 py-2  border-green-500 text-sm focus:border-green-500 focus:ring focus:ring-green-200"
             />
-            {errors.expiryDate && (
-              <p className="text-red-500 text-sm mt-1">{errors.expiryDate.message}</p>
+            {errors.bankName && (
+              <p className="text-red-500 text-xs mt-1">{errors.bankName.message}</p>
             )}
           </div>
 
-          {/* CVV */}
+          {/* Account Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              CVV *
+              Account Name
             </label>
             <input
-              type="password"
-              {...register("cvv")}
-              placeholder="123"
-              className="w-full border-2 border-green-500 rounded-lg p-3 focus:ring-2 focus:ring-green-500"
+              type="text"
+              {...register("accountName")}
+              placeholder="Wavora Ltd.Co"
+              className="w-full border rounded-lg px-3 py-2  border-green-500 text-sm focus:border-green-500 focus:ring focus:ring-green-200"
             />
-            {errors.cvv && (
-              <p className="text-red-500 text-sm mt-1">{errors.cvv.message}</p>
+            {errors.accountName && (
+              <p className="text-red-500 text-xs mt-1">{errors.accountName.message}</p>
+            )}
+          </div>
+
+          {/* Account Number */}
+          <div>
+            <div className="flex justify-between items-center mb-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Account Number
+              </label>
+              <button
+                type="button"
+                className="flex items-center text-xs text-green-600 hover:text-green-700"
+              >
+                <Copy size={14} className="mr-1" />
+                Copy
+              </button>
+            </div>
+            <input
+              type="text"
+              {...register("accountNumber")}
+              placeholder="1234567890"
+              className="w-full border rounded-lg px-3 py-2  border-green-500 text-sm focus:border-green-500 focus:ring focus:ring-green-200"
+            />
+            {errors.accountNumber && (
+              <p className="text-red-500 text-xs mt-1">{errors.accountNumber.message}</p>
+            )}
+          </div>
+
+          {/* Amount */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Amount
+            </label>
+            <input
+              type="number"
+              {...register("amount")}
+              placeholder="#10,000"
+              className="w-full border rounded-lg px-3 py-2  border-green-500 text-sm focus:border-green-500 focus:ring focus:ring-green-200"
+            />
+            {errors.amount && (
+              <p className="text-red-500 text-xs mt-1">{errors.amount.message}</p>
             )}
           </div>
         </div>
       </div>
+      <div className="hidden md:block"></div>
     </div>
   );
 }

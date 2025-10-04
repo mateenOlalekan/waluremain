@@ -12,7 +12,7 @@ export default function Navbar() {
 
   const links = [
     { name: "Home", type: "route", to: "/" },
-    { name: "About Us", type: "route", to: "/about" },
+    { name: "About Us", type: "route", to: "/" },
     { name: "Features", type: "scroll", to: "features" },
     { name: "Pricing", type: "scroll", to: "pricing" },
     { name: "FAQ", type: "scroll", to: "faq" },

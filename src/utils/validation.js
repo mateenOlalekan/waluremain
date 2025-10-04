@@ -1,4 +1,3 @@
-// utils/validation.js
 import { z } from "zod";
 
 export const personalDetailsSchema = z.object({
@@ -8,7 +7,7 @@ export const personalDetailsSchema = z.object({
     .min(7, "Phone number must be at least 7 digits")
     .regex(/^\+?[\d\s-]+$/, "Please enter a valid phone number"),
   addons: z.string().min(1, "Please choose an add-on option"),
-  duration: z.string().min(1, "Duration is required"),
+  duration: z.coerce.number().min(1, "Duration is required"), // 🔥 corrected
   number: z.coerce.number().min(1, "At least 1 person is required").max(50, "Maximum 50 people allowed"),
 });
 
@@ -21,18 +20,14 @@ export const bookingDetailsSchema = z.object({
   requests: z.string().max(500, "Special requests cannot exceed 500 characters").optional(),
 });
 
+// 🔥 Fixed to match Bank Transfer UI
 export const paymentDetailsSchema = z.object({
-  paymentMethod: z.string().min(1, "Please select a payment method"),
-  cardNumber: z.string()
-    .min(13, "Card number must be at least 13 digits")
-    .max(19, "Card number cannot exceed 19 digits")
-    .regex(/^[\d\s]+$/, "Card number can only contain numbers and spaces"),
-  expiryDate: z.string()
-    .min(1, "Expiry date is required"),
-  cvv: z.string()
-    .min(3, "CVV must be at least 3 digits")
-    .max(4, "CVV cannot exceed 4 digits")
-    .regex(/^\d+$/, "CVV must contain only numbers"),
+  bankName: z.string().min(1, "Bank name is required"),
+  accountName: z.string().min(1, "Account name is required"),
+  accountNumber: z.string().min(8, "Account Number is required"),
+  amount: z.string().min(3, "Amount is required"),
 });
 
-export const bookingSchema = personalDetailsSchema.merge(bookingDetailsSchema).merge(paymentDetailsSchema);
+export const bookingSchema = personalDetailsSchema
+  .merge(bookingDetailsSchema)
+  .merge(paymentDetailsSchema);
