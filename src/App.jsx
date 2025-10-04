@@ -1,26 +1,31 @@
+// src/App.jsx
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
 import React, { Suspense, lazy } from "react";
+import { Routes, Route } from "react-router-dom";
 
-// Layouts (these can remain static because they’re used often)
+/* Layouts (keep static — these are small and used for every page) */
 import MainLayout from "./layouts/MainLayout";
 import BookingLayout from "./layouts/BookingLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 
-// Lazy-loaded pages
-const HomePage = lazy(() => import("./pages/homepage"));
-const ContactPage = lazy(() => import("./pages/contactPage"));
-const BookingPage = lazy(() => import("./pages/bookingPage"));
-const LoginPage = lazy(() => import("./pages/loginPage"));
-const SignupPage = lazy(() => import("./pages/signupPage"));
-const VerificationPage = lazy(() => import("./pages/verificationPage"));
-const AdminPage = lazy(() => import("./pages/adminPage"));
-const UserPage = lazy(() => import("./pages/userDashpage"));
+/* Loading screen */
+import LoadingScreen from "./components/LoadingScreen";
+
+/* Lazy-loaded pages — IMPORTANT: file names are PascalCase and include .jsx extension in this example.
+   Make sure your actual filenames match these exactly (case + extension). */
+const HomePage = lazy(() => import("./pages/Homepage.jsx"));
+const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
+const BookingPage = lazy(() => import("./pages/BookingPage.jsx"));
+const LoginPage = lazy(() => import("./pages/LoginPage.jsx"));
+const SignupPage = lazy(() => import("./pages/SignupPage.jsx"));
+const VerificationPage = lazy(() => import("./pages/VerificationPage.jsx"));
+const AdminPage = lazy(() => import("./pages/AdminPage.jsx"));
+const UserPage = lazy(() => import("./pages/UserDashpage.jsx"));
 
 export default function App() {
   return (
-    <Suspense fallback={<div className="text-center p-10">Loading...</div>}>
+    <Suspense fallback={<LoadingScreen message="Preparing the workspace..." />}>
       <Routes>
         {/* Main Layout */}
         <Route element={<MainLayout />}>
