@@ -4,8 +4,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import Wavora from "../assets/Treva.svg";
-import Google from "../assets/googleicon.svg";
-import Facebook from "../assets/facebook.svg";
+import Google from "../assets/Googleicon.svg";
+import Facebook from "../assets/Facebook.svg";
 
 // Fake database for demo
 const existingUsers = ["test@example.com", "demo@wavora.com"];

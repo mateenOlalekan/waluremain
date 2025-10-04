@@ -4,7 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import Wavora from "../assets/Treva.svg";
-import Google from "../assets/googleicon.svg";
+import Google from "../assets/Googleicon.svg";
 import Facebook from "../assets/facebook.svg";
 
 // Fake database for demo
