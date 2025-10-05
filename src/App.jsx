@@ -9,14 +9,14 @@ import AuthLayout from "./layouts/AuthLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 
 // Lazy-loaded pages
-const HomePage = lazy(() => import("./pages/homepage"));
-const ContactPage = lazy(() => import("./pages/contactPage"));
-const BookingPage = lazy(() => import("./pages/bookingPage"));
-const LoginPage = lazy(() => import("./pages/loginPage"));
-const SignupPage = lazy(() => import("./pages/signupPage"));
-const VerificationPage = lazy(() => import("./pages/verificationPage"));
-const AdminPage = lazy(() => import("./pages/adminPage"));
-const UserPage = lazy(() => import("./pages/userDashpage"));
+const HomePage = lazy(() => import("./pages/Homepage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const BookingPage = lazy(() => import("./pages/BookingPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const SignupPage = lazy(() => import("./pages/SignupPage"));
+const VerificationPage = lazy(() => import("./pages/VerificationPage"));
+const AdminPage = lazy(() => import("./pages/AdminPage"));
+const UserPage = lazy(() => import("./pages/UserDashpage"));
 
 export default function App() {
   return (
