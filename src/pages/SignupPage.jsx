@@ -52,7 +52,7 @@ const SignupPage = () => {
 
   return (
     <div className="w-full flex items-center justify-center ">
-      <div className="w-full sm:max-w-lg bg-white rounded-2xl px-3 py-2 sm:px-8 sm:py-5 border border-gray-200 shadow-2xl">
+      <div className="w-full sm:max-w-lg bg-white rounded-2xl px-3 py-2 sm:px-8 sm:py-10 border border-none md:border-gray-200 shadow-2xl">
         {/* Logo */}
         <img src={Wavora} alt="Wavora" className="w-18 sm:w-20 mx-auto mb-2" />
 
