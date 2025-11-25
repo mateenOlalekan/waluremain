@@ -132,30 +132,10 @@ export default function Pricing() {
       <div className="mx-auto max-w-7xl flex flex-col gap-16">
         
 
-        {/* Additional Features */}
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              All Plans Include
-            </h3>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Every membership comes with our core amenities designed to support your productivity and comfort.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {additionalFeatures.map((item, index) => (
-              <div key={index} className="flex flex-col items-center text-center gap-3 p-4 rounded-lg hover:bg-gray-50 transition">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-green-600" />
-                </div>
-                <span className="font-semibold text-gray-900">{item.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+
 
         {/* Amenities Section */}
-        <div className="bg-white rounded-2xl shadow-lg p-12 border border-gray-100">
+        <div className=" border border-gray-100">
           <div className="text-center mb-12">
             <div className="flex flex-col gap-4">
               <span className="text-sm font-semibold text-green-600 uppercase tracking-wide">

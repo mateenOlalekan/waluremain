@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -7,6 +7,7 @@ import { scroller } from "react-scroll";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scroll, setScroll] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -19,10 +20,9 @@ export default function Navbar() {
     { name: "Contact", type: "route", to: "/contact" },
   ];
 
-  // Handle scroll link even if not on homepage
   const handleScroll = (id) => {
     if (location.pathname !== "/") {
-      navigate("/"); // go home first
+      navigate("/");
       setTimeout(() => {
         scroller.scrollTo(id, {
           smooth: true,
@@ -40,9 +40,23 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleScrollEvent = () => {
+      setScroll(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScrollEvent);
+
+    return () => window.removeEventListener("scroll", handleScrollEvent);
+  }, []);
+
   return (
-    <nav className="w-full py-4 flex justify-center items-center bg-white fixed top-0 left-0 z-50 md:px-3 px-4">
-      <div className="flex justify-between items-center w-full max-w-7xl ">
+    <nav
+      className={`${
+        scroll ? "shadow-lg bg-slate-100" : "bg-white"
+      } w-full py-4 flex justify-center items-center fixed top-0 left-0 z-50 md:px-3 px-4 transition-all duration-300`}
+    >
+      <div className="flex justify-between items-center w-full max-w-7xl">
         {/* Logo */}
         <img src={logo} alt="App Logo" className="h-10 w-auto" />
 
@@ -106,7 +120,6 @@ export default function Navbar() {
           isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
-        {/* Header */}
         <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200">
           <img src={logo} alt="App Logo" className="h-8 w-auto" />
           <button

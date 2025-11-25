@@ -32,6 +32,8 @@ const features = [
   },
 ];
 
+
+
 export default function Features() {
   return (
     <section id="features" className="bg-white w-full py-16 lg:py-24">
@@ -71,7 +73,7 @@ export default function Features() {
               <h3 className="text-2xl font-bold text-gray-900">What We Offer</h3>
               <p className="text-gray-600 mt-2">Everything you need to do your best work</p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 { text: "Gigabit Fiber Internet & Backup Power", icon: "⚡" },
                 { text: "24/7 Secure Access & CCTV Monitoring", icon: "🔒" },
