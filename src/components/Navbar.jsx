@@ -41,8 +41,8 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full py-3 shadow-sm bg-white fixed top-0 left-0 z-50">
-      <div className="flex justify-between items-center w-full max-w-7xl mx-auto px-4">
+    <nav className="w-full py-4 flex justify-center items-center bg-white fixed top-0 left-0 z-50 md:px-3 px-4">
+      <div className="flex justify-between items-center w-full max-w-7xl ">
         {/* Logo */}
         <img src={logo} alt="App Logo" className="h-10 w-auto" />
 

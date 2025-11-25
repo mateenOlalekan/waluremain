@@ -26,7 +26,8 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="w-14 md:w-56 h-screen flex flex-col bg-white dark:bg-gray-900 shadow-lg transition-all duration-300">
+    <div className="w-14 md:w-56 h-screen flex flex-col
+     bg-white dark:bg-gray-900 shadow-lg transition-all duration-300">
       {/* Admin Info */}
       <div className="items-center hidden flex-col justify-center border-b border-gray-200 dark:border-gray-700 py-6 px-4  md:flex">
         <img
