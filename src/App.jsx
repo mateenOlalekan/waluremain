@@ -12,12 +12,14 @@ import DashboardLayout from "./layouts/DashboardLayout";
 // Lazy-loaded pages
 const HomePage = lazy(() => import("./pages/Homepage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
 const BookingPage = lazy(() => import("./pages/BookingPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const SignupPage = lazy(() => import("./pages/SignupPage"));
 const VerificationPage = lazy(() => import("./pages/VerificationPage"));
 const AdminPage = lazy(() => import("./pages/AdminPage"));
 const UserPage = lazy(() => import("./pages/UserDashpage"));
+const Dashboard = lazy(() =>import("./pages/AdminDashboard/Dashboard.jsx"))
 
 // Loading Splash
 function LoadingSplash() {
@@ -48,6 +50,7 @@ export default function App() {
         {/* Main Layout */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
 
@@ -68,6 +71,8 @@ export default function App() {
           <Route path="/dash" element={<AdminPage />} />
           <Route path="/user" element={<UserPage />} />
         </Route>
+
+        <Route path="/board" element={<Dashboard/>}/>
       </Routes>
     </Suspense>
   );
