@@ -1,8 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import React, { Suspense, lazy } from "react";
+import logo from "./assets/logo.svg"; // FIXED: import logo
 
-// Layouts (these can remain static because they’re used often)
+// Layouts
 import MainLayout from "./layouts/MainLayout";
 import BookingLayout from "./layouts/BookingLayout";
 import AuthLayout from "./layouts/AuthLayout";
@@ -18,9 +19,31 @@ const VerificationPage = lazy(() => import("./pages/VerificationPage"));
 const AdminPage = lazy(() => import("./pages/AdminPage"));
 const UserPage = lazy(() => import("./pages/UserDashpage"));
 
+// Loading Splash
+function LoadingSplash() {
+  return (
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#BCF2D2] to-white z-50">
+      <style>
+        {`
+          @keyframes gentlePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+          }
+          .gentle-pulse {
+            animation: gentlePulse 5s ease-in-out infinite;
+          }
+        `}
+      </style>
+      <img src={logo} alt="Loading Logo" className="w-32 h-32 gentle-pulse" />
+      <p className="mt-4 text-gray-600 animate-pulse">Loading...</p>
+    </div>
+  );
+}
+
 export default function App() {
   return (
-    <Suspense fallback={<div className="text-center p-10">Loading...</div>}>
+    <Suspense fallback={<LoadingSplash />}>
       <Routes>
         {/* Main Layout */}
         <Route element={<MainLayout />}>
