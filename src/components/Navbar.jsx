@@ -90,13 +90,13 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             to="/login"
-            className="px-4 py-2 text-black border rounded-xl hover:bg-gray-100 transition"
+            className="px-4 py-2 text-black border rounded-sm hover:bg-gray-100 transition"
           >
             Log In
           </Link>
           <Link
             to="/signup"
-            className="px-4 py-2 bg-black text-white rounded-xl hover:bg-gray-800 transition"
+            className="px-4 py-2 bg-black text-white rounded-sm hover:bg-gray-800 transition"
           >
             Sign Up
           </Link>
